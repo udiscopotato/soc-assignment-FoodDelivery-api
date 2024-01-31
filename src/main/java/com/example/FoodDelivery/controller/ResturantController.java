@@ -1,5 +1,7 @@
 package com.example.FoodDelivery.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +24,16 @@ public class ResturantController {
 	@GetMapping("/resturant/test")
 	public String test() {
 		return "From Resturant";
+	}
+	
+	@GetMapping("/resturant/items")
+	public List<Items> showAllItems(){
+		return resturantService.getItems();
+	}
+	
+	@GetMapping("/resturant/")
+	public List<Resturant> showAllResturants(){
+		return resturantService.getResturants();
 	}
 	
 	@PostMapping("/resturant/")

@@ -1,5 +1,7 @@
 package com.example.FoodDelivery.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,14 @@ public class ResturantService {
 	
 	public Items saveItems(Items item) {
 		return itemsRepository.save(item);
+	}
+	
+	public List<Items> getItems() {
+		return itemsRepository.findAll();
+	}
+	
+	public List<Resturant> getResturants() {
+		return resturantRepository.findAll();
 	}
 	
 	public Track updateTracking(Long trackId) {

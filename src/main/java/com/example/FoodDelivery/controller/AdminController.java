@@ -1,11 +1,14 @@
 package com.example.FoodDelivery.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.FoodDelivery.entity.Customer;
 import com.example.FoodDelivery.entity.Track;
 import com.example.FoodDelivery.service.AdminService;
 
@@ -18,6 +21,11 @@ public class AdminController {
 	@GetMapping("/admin/test")
 	public String test() {
 		return "From Admin";
+	}
+	
+	@GetMapping("/admin/customers")
+	public List<Customer> allCustomers(){
+		return adminService.getAllCustomers();
 	}
 	
 	@PutMapping("/admin/track/{order_id}/{track_request}")
